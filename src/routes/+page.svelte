@@ -12,6 +12,10 @@
 		{
 			name: 'Discord',
 			href: '/discord'
+		},
+		{
+			name: 'GitHub',
+			href: 'https://github.com/darling/'
 		}
 	];
 
