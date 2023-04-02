@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createColorClassGenerator } from '$lib/colors';
 	import Container from '$lib/layout/Container.svelte';
-	import { take, random, first, chain, isEqual, last, flatMap } from 'lodash';
+	import { take, random, first, chain, isEqual } from 'lodash-es';
 	import type { PageData } from './$types';
 
 	const links = [

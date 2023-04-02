@@ -1,4 +1,4 @@
-import { random, size } from 'lodash';
+import { random, size } from 'lodash-es';
 
 const colorClasses = [
 	'hover:text-pink-700 hover:bg-pink-50',

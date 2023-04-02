@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { random } from 'lodash';
+	import { random } from 'lodash-es';
 	import { createColorClassGenerator } from './colors';
 	export const hasBackground = true;
 
