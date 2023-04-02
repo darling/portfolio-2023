@@ -1,5 +1,6 @@
 import matter from 'gray-matter';
-import { snakeCase } from 'lodash';
+import pkg from 'lodash';
+const { snakeCase } = pkg;
 import rehypeStringify from 'rehype-stringify';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';

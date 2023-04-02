@@ -1,5 +1,6 @@
 import { importProjects } from '$lib/projects';
-import { omit } from 'lodash';
+import pkg from 'lodash';
+const { omit } = pkg;
 
 /** @type {import('./$types').PageServerLoad} */
 export const load = async () => {

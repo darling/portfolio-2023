@@ -1,15 +1,8 @@
 <script lang="ts">
 	import { createColorClassGenerator } from '$lib/colors';
-	import { crossfade, fade, slide } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
 	import Container from '$lib/layout/Container.svelte';
-	import { take, random, first, drop, chain, isEqual, last, flatMap } from 'lodash';
+	import { take, random, first, chain, isEqual, last, flatMap } from 'lodash';
 	import type { PageData } from './$types';
-
-	const [send, receive] = crossfade({
-		duration: (d) => Math.sqrt(d * 300),
-		fallback: (node, params) => fade(node, { ...params, duration: 300, easing: quintOut })
-	});
 
 	const links = [
 		{
@@ -35,20 +28,19 @@
 		return path;
 	}
 
-	function insertNulls<T>(array: T[]): (T | null)[] {
-		return flatMap(array, (value: T, index: number) => {
-			if ((index + 1) % 2 === 0) {
-				return [value, null, null];
-			}
-			return value;
-		});
-	}
+	// function insertNulls<T>(array: T[]): (T | null)[] {
+	// 	return flatMap(array, (value: T, index: number) => {
+	// 		if ((index + 1) % 2 === 0) {
+	// 			return [value, null, null];
+	// 		}
+	// 		return value;
+	// 	});
+	// }
 
 	const colorGen = createColorClassGenerator();
 
-	// Songs
 	const mostRecentSong = first(data.lastfm.tracks);
-	const nowPlayingSong = mostRecentSong?.nowplaying ? mostRecentSong : null;
+	const nowPlayingSong = mostRecentSong?.nowPlaying ? mostRecentSong : null;
 
 	const restOfTracks = chain(data.lastfm.tracks)
 		.drop(1)
@@ -236,21 +228,18 @@
 						style="transform: rotate({random(-3, 1, false)}deg);">{nowPlayingSong.name}</a
 					>
 					by
-					<a
-						href={nowPlayingSong.artist.url}
-						target="_blank"
-						rel="noopener noreferrer"
+					<span
 						class={colorGen() + ' font-sans p-2 bg-white font-bold whitespace-nowrap'}
-						style="transform: rotate({random(-1, 3, false)}deg);">{nowPlayingSong.artist.name}</a
+						style="transform: rotate({random(-1, 3, false)}deg);">{nowPlayingSong.artist}</span
 					>.
 				</p>
 			{/if}
 			<p class="font-serif">Here's some recent music he's listened to:</p>
 			<div class="grid grid-cols-3 lg:grid-cols-5 gap-4 transition">
-				{#each insertNulls(restOfTracks) as track}
+				{#each restOfTracks as track}
 					{#if track}
 						<a href={track.url} target="_blank" rel="noreferrer" class="bg-white">
-							<img class="h-full" src={last(track.image)?.url} alt="" />
+							<img class="h-full" src={track.image.url} alt="" />
 						</a>
 					{:else}
 						<div class="aspect-square" />
