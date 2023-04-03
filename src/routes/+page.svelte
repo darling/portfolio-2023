@@ -243,7 +243,7 @@
 				{#each restOfTracks as track}
 					{#if track}
 						<a href={track.url} target="_blank" rel="noreferrer" class="bg-white">
-							<img class="h-full" src={track.image.url} alt="" />
+							<img class="aspect-square" src={track.image.url} alt="" />
 						</a>
 					{:else}
 						<div class="aspect-square" />
