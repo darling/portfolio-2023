@@ -19,6 +19,6 @@ Working on Bruhhouse was a great learning experience for me, as it allowed me to
 
 ## The Future of Bruhhouse
 
-While I no longer actively work on Bruhhouse, my friend Agnes has taken over the project and continues to maintain and develop it. You can check out the latest version of Bruhhouse on her website, [48n.es](48n.es/projects/safehouse).
+While I no longer actively work on Bruhhouse, my friend Agnes has taken over the project and continues to maintain and develop it. You can check out the latest version of Bruhhouse on her website, [48n.es](https://48n.es/projects/safehouse).
 
 Overall, Bruhhouse is a simple yet effective tool that makes it easy for creatives to edit HTML templates in real-time. It's a great example of how technical frontend development can be used to create user-friendly and innovative tools for non-technical users.
