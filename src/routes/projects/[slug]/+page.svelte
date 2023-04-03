@@ -32,7 +32,7 @@
 	</div>
 	<div class="pb-24 pt-12">
 		<div class={colorGen() + ' bg-white p-2 w-fit mx-auto'}>
-			<h1 class="text-center text-6xl font-bold tracking-wide">
+			<h1 class="text-center lg:text-6xl text-3xl font-bold tracking-wide">
 				{project?.title || 'Project Title'}
 			</h1>
 		</div>
