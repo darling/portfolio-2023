@@ -11,8 +11,8 @@ module.exports = {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
 			},
 			colors: {
-				primary: '#0C3934',
-				background: '#F8EBEE'
+				primary: '#FDE2F3',
+				background: '#2A2F4F'
 			}
 		}
 	},
