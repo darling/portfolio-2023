@@ -4,17 +4,12 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'sans-serif'],
-				serif: ['Noto Serif', 'serif']
-			},
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
+				sans: ['Manrope', 'sans-serif']
 			},
 			colors: {
 				primary: '#FDE2F3',
 				background: '#2A2F4F'
 			}
 		}
-	},
-	plugins: [require('@tailwindcss/typography')]
+	}
 };

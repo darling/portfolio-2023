@@ -9,20 +9,22 @@
 	export let data: PageData;
 
 	const myself = [
-		'I create and examine experiences.',
-		'I am a software engineer and designer.',
-		'I am a music enthusiast.',
-		'I want to design healthy and genuine interactions between people and technology.'
+		'Crafting experiences as a software engineer and designer.',
+		'Passionate about music and its influence.',
+		'Striving to foster healthy, genuine interactions between people and technology.'
 	];
 
 	const experience = [
 		{
 			place: 'Mimu',
-			role: 'Developer & Community'
+			role: 'Developer & Community',
+			link: 'https://mimu.bot',
+			description: 'Codebase maintainer and internal tech support.'
 		},
 		{
 			place: 'Saddleback',
-			role: 'Student'
+			role: 'Student',
+			link: 'https://saddleback.edu'
 		}
 	];
 
@@ -37,18 +39,26 @@
 			title: 'MixtapesBut.Digital',
 			link: 'https://mixtapesbut.digital',
 			description: 'Express your feelings through music.',
-			visitText: 'Project'
+			visitText: 'Project',
+			underConstruction: true
 		},
 		{
-			title: 'Lapis',
-			link: '#',
-			description: 'A social media that facilitates genuine interactions.',
-			visitText: 'pending...'
+			title: 'Road Identity',
+			link: 'https://roadidentity.com',
+			description: 'Host voting events for your car club.',
+			visitText: 'Demo',
+			underConstruction: true
 		},
 		{
 			title: 'Unworthy',
 			link: 'https://unworthy.net',
 			description: 'A digital collective of privacy enthusiasts.',
+			visitText: 'Learn'
+		},
+		{
+			title: 'Ferris.gg',
+			link: 'https://ferris.gg',
+			description: 'A community engagement solution for gamers.',
 			visitText: 'Learn'
 		},
 		{
@@ -87,9 +97,13 @@
 	<div class="text-xs min-h-screen py-8 flex flex-col items-center justify-center gap-4 lg:gap-8">
 		<div class="w-full flex justify-between">
 			<div>
-				<h1>carter aka safe</h1>
+				<h1>
+					carter @<span class="text-white font-bold">safe</span> @<span class="text-white font-bold"
+						>unworthy</span
+					>
+				</h1>
 			</div>
-			<div>hello at unworthy dot net</div>
+			<div>hello @ unworthy . net</div>
 		</div>
 		<div class="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
 			<Column>
@@ -106,14 +120,24 @@
 					<Row>
 						<div class="flex justify-between">
 							<div>
-								<p><b>{project.title}</b></p>
+								<h2 class="text-base font-bold tracking-wide">
+									{#if project.underConstruction}
+										🚧
+									{/if}
+									{project.title} 🠊
+									<a
+										rel="noopener"
+										target="_blank"
+										class="text-white underline"
+										href={project.link}
+									>
+										{project.visitText}
+									</a>
+								</h2>
 								<p>
 									{project.description}
 								</p>
 							</div>
-							<a class="text-white underline" href={project.link}>
-								{project.visitText}
-							</a>
 						</div>
 					</Row>
 				{/each}
@@ -124,11 +148,20 @@
 				{#each experience as item}
 					<Row>
 						<div class="flex justify-between">
-							<p>{item.role}</p>
-							<p>
-								{item.place}
-							</p>
+							<h2 class="font-bold tracking-wide text-base">
+								{item.role} @
+								<a rel="noopener" target="_blank" class="text-white underline" href={item.link}>
+									{item.place}
+								</a>
+							</h2>
 						</div>
+						{#if item.description}
+							<div>
+								<p>
+									{item.description}
+								</p>
+							</div>
+						{/if}
 					</Row>
 				{/each}
 			</Column>
