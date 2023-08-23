@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Container from '$lib/layout/Container.svelte';
-	import { take, first, chain } from 'lodash-es';
+	import { take, first, chain, uniqBy } from 'lodash-es';
 	import type { PageData } from './$types';
 	import Column from '$lib/layout/main/Column.svelte';
 	import Row from '$lib/layout/main/entries/Row.svelte';
@@ -72,7 +72,7 @@
 	const mostRecentSong = first(data.lastfm.tracks);
 	const nowPlayingSong = mostRecentSong?.nowPlaying ? mostRecentSong : null;
 
-	const displayedTracks = chain(data.lastfm.tracks).uniqBy('mbid').value();
+	const displayedTracks = uniqBy(data.lastfm.tracks, 'mbid');
 
 	let currentSelectedSong: undefined | (typeof displayedTracks)[0];
 	$: currentSelectedSong = undefined;
@@ -207,7 +207,7 @@
 			</Column>
 			{#if currentSelectedSong}
 				<img
-					class="w-1/2 hidden md:block"
+					class="w-9/12 hidden md:block"
 					alt={`Album art for ${currentSelectedSong.name} by ${currentSelectedSong.artist}`}
 					src={currentSelectedSong.image.url || '/assets/images/placeholder.png'}
 				/>
