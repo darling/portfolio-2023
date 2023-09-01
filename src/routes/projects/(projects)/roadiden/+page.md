@@ -12,7 +12,7 @@ path: roadiden
 
 Road Identity was created in a short period to address the immediate needs of 356 Club. It has since become the go-to solution for the club's future events, with plans to expand into the social media market and other automotive ventures.
 
-This platform was used for the Club's July 2023 event with over 200 participants, and the following is a description of the project and its future goals. Screenshots may be of previous versions of the project, and the project may have changed since the time of writing.
+This platform was used for the Club's July 2023 event with over 200 participants, and the following is a description of the project and its future goals. Screenshots may be of previous versions of the project, and the project is still in development.
 
 ![A users profile](https://cdn.ey.lc/projects/roadiden/firefox_VEjCMa68cQ.gif)
 

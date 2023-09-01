@@ -125,7 +125,7 @@
 			</Row>
 		{/each}
 		<a
-			class="text-lg tracking-wider hover:underline text-white w-full flex flex-col items-center justify-center p-4"
+			class="text-lg tracking-wider hover:underline bg-primary text-background rounded-md w-full flex flex-col items-center justify-center p-4"
 			href="/projects">Learn More -></a
 		>
 	</Column>

@@ -6,13 +6,9 @@ image: https://cdn.ey.lc/projects/ferris/firefox_Mj3A3qtyIx.png
 path: ferris
 ---
 
-<div class="px-4 rounded-xl bg-red-800 text-red-50">
-<p class="py-4">
-Ferris is an old project, many of the screenshots you see are from a postmortem I wrote in 2020. The following is a description of the project and its future goals. Screenshots may be of previous versions of the project, and the project may have changed since the time of writing.
-</p>
-</div>
-
 ## Introduction
+
+> Ferris is an old project, many of the screenshots you see are from a postmortem I wrote in 2020. The following is a description of the project and its future goals. Screenshots may be of previous versions of the project, and the project may have changed since the time of writing.
 
 Ferris.gg is not your average Discord bot; it's a premium, managed, and high-caliber solution for community management and moderation. Conceived during the 2020 pandemic, Ferris.gg marks a pivotal point in my journey from a backend and networking stack developer to a fledged web developer. This project revolutionized the Discord bot landscape at the time, providing robust features and a premium web panel, all wrapped in irresistibly cute branding.
 
