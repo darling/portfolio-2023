@@ -93,125 +93,110 @@
 	<meta name="author" content="Carter" />
 </svelte:head>
 
-<Container>
-	<div class="text-xs min-h-screen py-8 flex flex-col items-center justify-center gap-4 lg:gap-8">
-		<div class="w-full flex justify-between">
-			<div>
-				<h1>
-					carter @<span class="text-white font-bold">safe</span> @<span class="text-white font-bold"
-						>unworthy</span
-					>
-				</h1>
-			</div>
-			<div>hello @ unworthy . net</div>
-		</div>
-		<div class="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-			<Column>
-				<ColTitle>Myself</ColTitle>
-				{#each myself as item}
-					<Row>
-						<p>{item}</p>
-					</Row>
-				{/each}
-			</Column>
-			<Column>
-				<ColTitle>Projects</ColTitle>
-				{#each projects as project}
-					<Row>
-						<div class="flex justify-between">
-							<div>
-								<h2 class="text-base font-bold tracking-wide">
-									{#if project.underConstruction}
-										🚧
-									{/if}
-									{project.title} 🠊
-									<a
-										rel="noopener"
-										target="_blank"
-										class="text-white underline"
-										href={project.link}
-									>
-										{project.visitText}
-									</a>
-								</h2>
-								<p>
-									{project.description}
-								</p>
-							</div>
-						</div>
-					</Row>
-				{/each}
-			</Column>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+	<Column>
+		<ColTitle>Myself</ColTitle>
+		{#each myself as item}
+			<Row>
+				<p>{item}</p>
+			</Row>
+		{/each}
+	</Column>
+	<Column>
+		<ColTitle>Projects</ColTitle>
+		{#each projects as project}
+			<Row>
+				<div class="flex justify-between">
+					<div>
+						<h2 class="text-base font-bold tracking-wide">
+							{#if project.underConstruction}
+								🚧
+							{/if}
+							{project.title} 🠊
+							<a rel="noopener" target="_blank" class="text-white underline" href={project.link}>
+								{project.visitText}
+							</a>
+						</h2>
+						<p>
+							{project.description}
+						</p>
+					</div>
+				</div>
+			</Row>
+		{/each}
+		<a
+			class="text-lg tracking-wider hover:underline text-white w-full flex flex-col items-center justify-center p-4"
+			href="/projects">Learn More -></a
+		>
+	</Column>
 
-			<Column>
-				<ColTitle>Experience</ColTitle>
-				{#each experience as item}
-					<Row>
-						<div class="flex justify-between">
-							<h2 class="font-bold tracking-wide text-base">
-								{item.role} @
-								<a rel="noopener" target="_blank" class="text-white underline" href={item.link}>
-									{item.place}
-								</a>
-							</h2>
-						</div>
-						{#if item.description}
-							<div>
-								<p>
-									{item.description}
-								</p>
-							</div>
-						{/if}
-					</Row>
-				{/each}
-			</Column>
+	<Column>
+		<ColTitle>Experience</ColTitle>
+		{#each experience as item}
+			<Row>
+				<div class="flex justify-between">
+					<h2 class="font-bold tracking-wide text-base">
+						{item.role} @
+						<a rel="noopener" target="_blank" class="text-white underline" href={item.link}>
+							{item.place}
+						</a>
+					</h2>
+				</div>
+				{#if item.description}
+					<div>
+						<p>
+							{item.description}
+						</p>
+					</div>
+				{/if}
+			</Row>
+		{/each}
+	</Column>
 
-			<Column>
-				<ColTitle>
-					{#if nowPlayingSong}
-						Now Playing
-					{:else}
-						Recently Played
-					{/if}
-				</ColTitle>
-				{#each take(displayedTracks, 5) as track}
-					<Row>
-						<div
-							on:mouseover={() => {
-								currentSelectedSong = track;
-							}}
-							on:mouseleave={() => {
-								currentSelectedSong = undefined;
-							}}
-							on:focus={() => {
-								currentSelectedSong = track;
-							}}
-							on:blur={() => {
-								currentSelectedSong = undefined;
-							}}
-							class="flex justify-between"
-						>
-							<div class="flex items-center align-middle">
-								<div
-									hidden={!track.nowPlaying}
-									class="w-2 h-2 rounded-full bg-primary -ml-4 mr-2 animate-ping"
-								/>
-								<a href={track.url} class="text-white underline">{track.name}</a>
-							</div>
-							<p>
-								{track.artist}
-							</p>
-						</div>
-					</Row>
-				{/each}
-			</Column>
-			{#if currentSelectedSong}
-				<img
-					class="w-9/12 hidden md:block"
-					alt={`Album art for ${currentSelectedSong.name} by ${currentSelectedSong.artist}`}
-					src={currentSelectedSong.image.url || '/assets/images/placeholder.png'}
-				/>
+	<Column>
+		<ColTitle>
+			{#if nowPlayingSong}
+				Now Playing
+			{:else}
+				Recently Played
 			{/if}
-		</div>
-	</div>
-</Container>
+		</ColTitle>
+		{#each take(displayedTracks, 5) as track}
+			<Row>
+				<div
+					on:mouseover={() => {
+						currentSelectedSong = track;
+					}}
+					on:mouseleave={() => {
+						currentSelectedSong = undefined;
+					}}
+					on:focus={() => {
+						currentSelectedSong = track;
+					}}
+					on:blur={() => {
+						currentSelectedSong = undefined;
+					}}
+					class="flex justify-between"
+				>
+					<div class="flex items-center align-middle">
+						<div
+							hidden={!track.nowPlaying}
+							class="w-2 h-2 rounded-full bg-primary -ml-4 mr-2 animate-ping"
+						/>
+						<a href={track.url} class="text-white underline">{track.name}</a>
+					</div>
+					<p>
+						{track.artist}
+					</p>
+				</div>
+			</Row>
+		{/each}
+	</Column>
+	{#if currentSelectedSong}
+		<img
+			class="w-9/12 hidden md:block"
+			alt={`Album art for ${currentSelectedSong.name} by ${currentSelectedSong.artist}`}
+			src={currentSelectedSong.image.url || '/assets/images/placeholder.png'}
+		/>
+	{/if}
+</div>

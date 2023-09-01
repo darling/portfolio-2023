@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,7 +9,14 @@ const config = {
 			routes: { include: ['/*'], exclude: ['<all>'] }
 		})
 	},
-	preprocess: vitePreprocess()
+	extensions: ['.svelte', '.md'],
+	preprocess: [
+		vitePreprocess(),
+		mdsvex({
+			extensions: ['.md'],
+			layout: './src/lib/components/Markdown.svelte'
+		})
+	]
 };
 
 export default config;
